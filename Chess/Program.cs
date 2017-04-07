@@ -11,34 +11,44 @@ namespace Chess
         static void Main(string[] args)
         {
             
-            Console.WriteLine("Bitte Zahl eingeben: ");
+           
 
-            int vertical = Convert.ToInt32(Console.ReadLine());
-            int horizontal = vertical;
-            string[,] table = new string[vertical, horizontal];
-             
-            for(int i=0; i<vertical; i++) //A B C D E F G H 
+            try
             {
-                for(int j=0; j<horizontal; j++) //  1 2 3 4 5 6 7 8
+                Console.WriteLine("Bitte Grösse des Spielfeld bestimmen: ");
+                int vertical = Convert.ToInt32(Console.ReadLine());
+                int horizontal = vertical;
+                string[,] table = new string[vertical, horizontal];
+
+                for (int i = 0; i < vertical; i++) //A B C D E F G H 
                 {
-                    if ((i+j)%2 == 0)
+                    for (int j = 0; j < horizontal; j++) //  1 2 3 4 5 6 7 8
                     {
-                        table[i, j] = "[ ]";
-                    }
-                    else
-                    {
-                        table[i, j] = "[.]";
+                        if ((i + j) % 2 == 0)
+                        {
+                            table[i, j] = "[ ]";
+                        }
+                        else
+                        {
+                            table[i, j] = "[■]";
+                        }
                     }
                 }
-            }
-            for (int i=0; i<horizontal; i++)
-            {
-                for (int j=0; j<vertical; j++)
+                for (int i = 0; i < horizontal; i++)
                 {
-                    Console.Write(table[i, j]);
+                    for (int j = 0; j < vertical; j++)
+                    {
+                        Console.Write(table[i, j]);
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("fuck you. nutz ne zahl du pimmel");
+            }
+            
+            
         }
     }
 }
