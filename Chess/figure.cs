@@ -22,14 +22,14 @@ namespace Chess
             get { return yposistion; }
             set { yposistion = value; }
         }
-        private int move1 = 0;
-        private int move2 = 0;
-        private int move3 = 0;
-        private int move4 = 0;
-        private int move5 = 0;
-        private int move6 = 0;
-        private int move7 = 0;
-        private int move8 = 0;
+        //private int move1 = 0;
+        //private int move2 = 0;
+        //private int move3 = 0;
+        //private int move4 = 0;
+        //private int move5 = 0;
+        //private int move6 = 0;
+        //private int move7 = 0;
+        //private int move8 = 0;
 
         public figure(int xposition, int yposistion)
         {
@@ -54,10 +54,13 @@ namespace Chess
              *  Position 8 (Sprung 8) Y+1 X-2 Taste E 
              *  
              */
-            move1 = xposition-2 
-        }
-        public void 
 
+        }
+        public void move1()
+        {
+            YPosition = yposistion + 2;
+            XPosition = xposition - 1;
+        }
 
     }
 }
