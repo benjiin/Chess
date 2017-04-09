@@ -18,6 +18,7 @@ namespace Chess
                 int horizontal = vertical;
                 string[,] table = new string[vertical, horizontal];
                 figure knight1 = new figure(0, vertical-1);
+                figure knight2 = new figure(vertical-1, 0);
 
                 
                 void show()
@@ -40,11 +41,17 @@ namespace Chess
                             {
                                 table[i, j] = "[K]";
                             }
+                            if (knight2.XPosition == j && knight2.YPosition == i)
+                            {
+                                table[i, j] = "[W]";
+                            }
+                           
                             Console.Write(table[i, j]);
                         }
                         Console.WriteLine();
+                     
                     }
-
+            
                 }
                 show();
                 while (true)
@@ -61,6 +68,10 @@ namespace Chess
                     if (knight1.XPosition < 0 || knight1.YPosition < 0 || knight1.YPosition > horizontal-1 || knight1.XPosition > horizontal -1)
                     {
                         throw new boardexception(); 
+                    }
+                    if (knight1.XPosition == knight2.XPosition && knight1.YPosition == knight2.YPosition)
+                    {
+                        throw new hitexception();
                     }
                     Console.WriteLine("Bitte Ihren nächsten Zug angeben: ");
 
@@ -110,6 +121,10 @@ namespace Chess
             catch (boardexception)
             {
                 Console.WriteLine("Programm beendet. Figur ausserhalb des Spielbereich");
+            }
+            catch (hitexception)
+            {
+                Console.WriteLine("Programm beendet. Bitte keine anderen Spieler berühren");
             }
             
             
