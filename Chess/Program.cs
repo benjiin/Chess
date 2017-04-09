@@ -102,13 +102,10 @@ namespace Chess
                     show();
 
                 }
-               
-              
-
             }
             catch (FormatException)
             {
-                Console.WriteLine("Programm beendet. Bitte nutzen Sie nur Zahken");
+                Console.WriteLine("Programm beendet. Bitte nutzen Sie nur Zahlen");
             }
             catch (boardexception)
             {
