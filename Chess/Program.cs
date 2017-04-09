@@ -13,6 +13,14 @@ namespace Chess
 
             try
             {
+                Console.WriteLine("**************************************\n\n Uebungsaufgabe zum Fehler catchen. \n\n**************************************\n" +
+                    "Im folgenen Beispiel kann ein Schachbrett erstellt werden.\n" +
+                    "Anschliessend startet \"Ihr\" Pferdchen an der unteren linken Ecke (eigentlich A1) und das gegnerische Pferd oben rechts.\n" +
+                    "Mit den gegebenen Buchstaben wird das Pferd bewegt." +
+                    "Das \"K\" symbolisiert das Pferd. Wenn es ausserhalb des Feldes springt, wird das Programm beendet." +
+                    "Ebenso wenn das andere Pferdchen geschlagen wird");
+                Console.ReadKey();
+                Console.Clear();
                 Console.WriteLine("Bitte Grösse des Spielfeld bestimmen: ");
                 int vertical = Convert.ToInt32(Console.ReadLine());
                 int horizontal = vertical;
@@ -23,8 +31,8 @@ namespace Chess
                 
                 void show()
                 {
-                    Console.WriteLine("X= " + knight1.XPosition);
-                    Console.WriteLine("Y= " + knight1.YPosition);
+                    Console.WriteLine("Der weisse Ritter befindet sich auf {0}{1}",Convert.ToChar(knight1.XPosition+97), knight1.YPosition+1);
+                    Console.WriteLine("Der andere Ritter befindet sich auf {0}{1}",Convert.ToChar(knight2.XPosition+97), knight2.YPosition+1);
                     for (int i = 0; i < horizontal; i++)
                     {
                         for (int j = 0; j < vertical; j++)
