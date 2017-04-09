@@ -18,44 +18,47 @@ namespace Chess
                 int horizontal = vertical;
                 string[,] table = new string[vertical, horizontal];
                 figure knight1 = new figure(4, 4);
-                string input = String.Empty;
 
-                 
-                Console.WriteLine("X= " + knight1.XPosition);
-                Console.WriteLine("Y= " + knight1.YPosition);
-                for (int i = 0; i < horizontal; i++)
+                
+                void show()
                 {
-                    for (int j = 0; j < vertical; j++)
+                    Console.WriteLine("X= " + knight1.XPosition);
+                    Console.WriteLine("Y= " + knight1.YPosition);
+                    for (int i = 0; i < horizontal; i++)
                     {
-                        if ((i + j) % 2 == 0)
+                        for (int j = 0; j < vertical; j++)
                         {
-                            table[i, j] = "[ ]";
+                            if ((i + j) % 2 == 0)
+                            {
+                                table[i, j] = "[ ]";
+                            }
+                            else
+                            {
+                                table[i, j] = "[■]";
+                            }
+                            if (knight1.XPosition == j && knight1.YPosition == i)
+                            {
+                                table[i, j] = "[K]";
+                            }
+                            Console.Write(table[i, j]);
                         }
-                        else
-                        {
-                            table[i, j] = "[■]";
-                        }
-                        if (knight1.XPosition == j && knight1.YPosition == i)
-                        {
-                            table[i, j] = "[K]";
-                        }
-                        Console.Write(table[i, j]);
+                        Console.WriteLine();
                     }
-                    Console.WriteLine();
+
                 }
+                show();
                 Console.WriteLine("Bitte Ihren nächsten Zug angeben: ");
-                input = Convert.ToString(Console.ReadLine());
-                switch (input)
+                ConsoleKeyInfo input = Console.ReadKey();
+                if(knight1.XPosition < 0 || knight1.XPosition > horizontal && knight1.YPosition < 0 || knight1.YPosition > horizontal)
+                switch (input.Key)
                 {
-                    case "s":
-                        Console.WriteLine("yes");
+                    case ConsoleKey.R:
+                            knight1.move6();
                         break;
                     default:
                         break;
                 }
-
-
-
+                show();
 
             }
             catch (FormatException)
