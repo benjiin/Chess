@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="board.cs" />
+    <Compile Include="boardexception.cs" />
     <Compile Include="figure.cs" />
+    <Compile Include="hitexception.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

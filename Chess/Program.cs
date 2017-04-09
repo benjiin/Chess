@@ -14,10 +14,11 @@ namespace Chess
             try
             {
                 Console.WriteLine("Bitte Grösse des Spielfeld bestimmen: ");
-                int vertical = 8; // Convert.ToInt32(Console.ReadLine());
+                int vertical = Convert.ToInt32(Console.ReadLine());
                 int horizontal = vertical;
                 string[,] table = new string[vertical, horizontal];
                 figure knight1 = new figure(0, vertical-1);
+                figure knight2 = new figure(vertical-1, 0);
 
                 
                 void show()
@@ -40,11 +41,17 @@ namespace Chess
                             {
                                 table[i, j] = "[K]";
                             }
+                            if (knight2.XPosition == j && knight2.YPosition == i)
+                            {
+                                table[i, j] = "[W]";
+                            }
+                           
                             Console.Write(table[i, j]);
                         }
                         Console.WriteLine();
+                     
                     }
-
+            
                 }
                 show();
                 while (true)
@@ -58,15 +65,22 @@ namespace Chess
                         "V: 1 rechts + 2 runter\n" +
                         "C: 1 links + 2 runter \n" +
                         "D: 2 links + 1 runter\n");
+                    if (knight1.XPosition < 0 || knight1.YPosition < 0 || knight1.YPosition > horizontal-1 || knight1.XPosition > horizontal -1)
+                    {
+                        throw new boardexception(); 
+                    }
+                    if (knight1.XPosition == knight2.XPosition && knight1.YPosition == knight2.YPosition)
+                    {
+                        throw new hitexception();
+                    }
                     Console.WriteLine("Bitte Ihren nächsten Zug angeben: ");
 
                     ConsoleKeyInfo input = Console.ReadKey();
-                   
 
+                    Console.WriteLine();
                     switch (input.Key)
                     {
                         case ConsoleKey.R:
-                            if(!(knight1.XPosition > horizontal) && !(knight1.YPosition > vertical) || knight1.YPosition < 0 && knight1.XPosition < 0)
                             knight1.move6();
                             break;
                         case ConsoleKey.T:
@@ -91,18 +105,26 @@ namespace Chess
                             knight1.move7();
                             break;
                         default:
+                            Console.WriteLine("Nur Buchstaben");
                             break;
                     }
+               
+                   
                     show();
 
                 }
-               
-              
-
             }
             catch (FormatException)
             {
-                Console.WriteLine("fuck you. nutz ne zahl du pimmel");
+                Console.WriteLine("Programm beendet. Bitte nutzen Sie nur Zahlen");
+            }
+            catch (boardexception)
+            {
+                Console.WriteLine("Programm beendet. Figur ausserhalb des Spielbereich");
+            }
+            catch (hitexception)
+            {
+                Console.WriteLine("Programm beendet. Bitte keine anderen Spieler berühren");
             }
             
             
