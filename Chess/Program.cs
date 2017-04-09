@@ -14,7 +14,7 @@ namespace Chess
             try
             {
                 Console.WriteLine("Bitte Grösse des Spielfeld bestimmen: ");
-                int vertical = 8; // Convert.ToInt32(Console.ReadLine());
+                int vertical = Convert.ToInt32(Console.ReadLine());
                 int horizontal = vertical;
                 string[,] table = new string[vertical, horizontal];
                 figure knight1 = new figure(0, vertical-1);
@@ -58,15 +58,18 @@ namespace Chess
                         "V: 1 rechts + 2 runter\n" +
                         "C: 1 links + 2 runter \n" +
                         "D: 2 links + 1 runter\n");
+                    if (knight1.XPosition < 0 || knight1.YPosition < 0 || knight1.YPosition > horizontal-1 || knight1.XPosition > horizontal -1)
+                    {
+                        throw new boardexception(); 
+                    }
                     Console.WriteLine("Bitte Ihren nächsten Zug angeben: ");
 
                     ConsoleKeyInfo input = Console.ReadKey();
-                   
 
+                    Console.WriteLine();
                     switch (input.Key)
                     {
                         case ConsoleKey.R:
-                            if(!(knight1.XPosition > horizontal) && !(knight1.YPosition > vertical) || knight1.YPosition < 0 && knight1.XPosition < 0)
                             knight1.move6();
                             break;
                         case ConsoleKey.T:
@@ -91,8 +94,11 @@ namespace Chess
                             knight1.move7();
                             break;
                         default:
+                            Console.WriteLine("Nur Buchstaben");
                             break;
                     }
+               
+                   
                     show();
 
                 }
@@ -102,7 +108,11 @@ namespace Chess
             }
             catch (FormatException)
             {
-                Console.WriteLine("fuck you. nutz ne zahl du pimmel");
+                Console.WriteLine("Programm beendet. Bitte nutzen Sie nur Zahken");
+            }
+            catch (boardexception)
+            {
+                Console.WriteLine("Programm beendet. Figur ausserhalb des Spielbereich");
             }
             
             
