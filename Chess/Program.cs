@@ -127,17 +127,20 @@ namespace Chess
             catch (FormatException)
             {
                 Console.WriteLine("Programm beendet. Bitte nutzen Sie nur Zahlen");
+                Console.ReadKey();
             }
             catch (boardexception)
             {
                 Console.WriteLine("Programm beendet. Figur ausserhalb des Spielbereich");
+                Console.ReadKey();
             }
             catch (hitexception)
             {
                 Console.WriteLine("Programm beendet. Bitte keine anderen Spieler berühren");
+                Console.ReadKey();
             }
-            
-            
+
+
         }
     }
 }
