@@ -56,10 +56,45 @@ namespace Chess
              */
 
         }
-        public void move1()
+        public void move1() //R
         {
-            YPosition = yposistion + 2;
-            XPosition = xposition - 1;
+            this.yposistion = yposistion + 2;
+            this.xposition = xposition - 1;
+        }
+        public void move2() //T
+        {
+            this.yposistion = yposistion + 2;
+            this.xposition = xposition + 1;
+        }
+        public void move3() //G
+        {
+            this.yposistion = yposistion + 1;
+            this.xposition = xposition + 2;
+        }
+        public void move4() //B
+        {
+            this.yposistion = yposistion - 1;
+            this.xposition = xposition + 2;
+        }
+        public void move5() //V
+        {
+            this.yposistion = yposistion - 2;
+            this.xposition = xposition + 1;
+        }
+        public void move6() //C
+        {
+            this.yposistion = yposistion - 2;
+            this.xposition = xposition - 1;
+        }
+        public void move7() //D
+        {
+            this.yposistion = yposistion - 1;
+            this.xposition = xposition - 2;
+        }
+        public void move8() //E
+        {
+            this.yposistion = yposistion + 1;
+            this.xposition = xposition - 2;
         }
 
     }
