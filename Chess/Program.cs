@@ -19,9 +19,11 @@ namespace Chess
                     "Mit den gegebenen Buchstaben wird das Pferd bewegt." +
                     "Das \"K\" symbolisiert das Pferd. Wenn es ausserhalb des Feldes springt, wird das Programm beendet." +
                     "Ebenso wenn das andere Pferdchen geschlagen wird");
+                Console.WriteLine("\n\n\nDrueck die bekannte ANY-Key zum Fortfahren");
                 Console.ReadKey();
                 Console.Clear();
                 Console.WriteLine("Bitte Grösse des Spielfeld bestimmen: ");
+                Console.WriteLine("\n(Zahl eingeben und mit Enter bestätigen)");
                 int vertical = Convert.ToInt32(Console.ReadLine());
                 int horizontal = vertical;
                 string[,] table = new string[vertical, horizontal];
