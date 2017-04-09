@@ -49,9 +49,19 @@ namespace Chess
                 show();
                 while (true)
                 {
+                    Console.WriteLine("" +
+                        "E: 2 links + 1 hoch \n" +
+                        "R: 1 links + 2 hoch \n" +
+                        "T: 1 rechts + 2 hoch \n" +
+                        "G: 2 rechts + 1 hoch\n" +
+                        "B: 2 rechts + 1 runter\n" +
+                        "V: 1 rechts + 2 runter\n" +
+                        "C: 1 links + 2 runter \n" +
+                        "D: 2 links + 1 runter\n");
                     Console.WriteLine("Bitte Ihren nächsten Zug angeben: ");
 
                     ConsoleKeyInfo input = Console.ReadKey();
+                   
 
                     switch (input.Key)
                     {
