@@ -29,8 +29,7 @@ namespace Chess
                 figure knight2 = new figure(vertical-1, 0);
 
                 
-                void show()
-                {
+             
                     Console.WriteLine("Der weisse Ritter befindet sich auf {0}{1}",Convert.ToChar(knight1.XPosition+97), knight1.YPosition+1);
                     Console.WriteLine("Der andere Ritter befindet sich auf {0}{1}",Convert.ToChar(knight2.XPosition+97), knight2.YPosition+1);
                     for (int i = 0; i < horizontal; i++)
@@ -60,8 +59,8 @@ namespace Chess
                      
                     }
             
-                }
-                show();
+                
+                
                 while (true)
                 {
                     Console.WriteLine("" +
@@ -116,9 +115,36 @@ namespace Chess
                             Console.WriteLine("Nur Buchstaben");
                             break;
                     }
-               
-                   
-                    show();
+                    Console.Clear();
+
+                    Console.WriteLine("Der weisse Ritter befindet sich auf {0}{1}", Convert.ToChar(knight1.XPosition + 97), knight1.YPosition + 1);
+                    Console.WriteLine("Der andere Ritter befindet sich auf {0}{1}", Convert.ToChar(knight2.XPosition + 97), knight2.YPosition + 1);
+                    for (int i = 0; i < horizontal; i++)
+                    {
+                        for (int j = 0; j < vertical; j++)
+                        {
+                            if ((i + j) % 2 == 0)
+                            {
+                                table[i, j] = "[ ]";
+                            }
+                            else
+                            {
+                                table[i, j] = "[■]";
+                            }
+                            if (knight1.XPosition == j && knight1.YPosition == i)
+                            {
+                                table[i, j] = "[K]";
+                            }
+                            if (knight2.XPosition == j && knight2.YPosition == i)
+                            {
+                                table[i, j] = "[W]";
+                            }
+
+                            Console.Write(table[i, j]);
+                        }
+                        Console.WriteLine();
+
+                    }
 
                 }
             }
